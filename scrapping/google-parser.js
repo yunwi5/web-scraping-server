@@ -41,7 +41,7 @@ async function findRating(nightmare, URL) {
         const ratingElem = document.querySelector('span.IZACzd, span.gsrt.KMdzJ');
         return ratingElem ? ratingElem.textContent : '';
     });
-    console.log('Raw movie rating:', movieRating);
+    // console.log('Raw movie rating:', movieRating);
     return movieRating;
 }
 
@@ -52,14 +52,13 @@ async function findYearGenreDuration(nightmare, URL) {
         const content = document.querySelector('div.EGmpye div.PZPZlf, .wwUB2c');
         return content ? content.textContent : '';
     });
-    console.log('Hours and minutes part:');
-    console.log(movieYearGenreDuration);
+    // console.log('Hours and minutes part:');
     return movieYearGenreDuration;
 }
 
 async function findMovie(titleQuery = '') {
     const URL = `https://www.google.com/search?q=${titleQuery}`;
-    console.log(URL);
+    // console.log(URL);
 
     const nm = nightmare();
     const desc = await findDescription(nm, URL);
@@ -72,15 +71,15 @@ async function findMovie(titleQuery = '') {
     const { director, producers } = getDirectorAndProducers(movieCardContent);
     const rating = getRatingAsNumber(ratingText);
 
-    console.log(`title: ${title}`);
-    console.log(`desc: ${desc}}`);
-    console.log(`year: ${year}`);
-    console.log(`genre: ${genres}`);
-    console.log(`hours: ${hours}`);
-    console.log(`minutes: ${minutes}`);
-    console.log(`director: ${director}`);
-    console.log(`producers: ${producers.join(' & ')}`);
-    console.log(`rating: ${rating}`);
+    // console.log(`title: ${title}`);
+    // console.log(`desc: ${desc}}`);
+    // console.log(`year: ${year}`);
+    // console.log(`genre: ${genres}`);
+    // console.log(`hours: ${hours}`);
+    // console.log(`minutes: ${minutes}`);
+    // console.log(`director: ${director}`);
+    // console.log(`producers: ${producers.join(' & ')}`);
+    // console.log(`rating: ${rating}`);
     await nm.end();
 
     return {

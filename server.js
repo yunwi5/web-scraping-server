@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const cors = require('cors');
@@ -16,14 +20,12 @@ app.get('/', (req, res) => {
 
 app.get('/api/search/:title', asyncHandler(async (req, res) => {
     const queryTitle = req.params.title;
-    // console.log('query title:', queryTitle);
-
     const result = await findMovie(queryTitle);
 
     res.send(result);
 }))
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
     console.log(`Server running on the port ${port}`);
 })
