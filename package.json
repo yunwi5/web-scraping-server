@@ -6,7 +6,8 @@
 	"license": "ISC",
 	"author": "yunwi5",
 	"scripts": {
-		"dev": "nodemon server.js"
+		"dev": "nodemon server.js",
+		"start": "node server.js"
 	},
 	"dependencies": {
 		"cors": "^2.8.5",
