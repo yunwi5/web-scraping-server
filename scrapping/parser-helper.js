@@ -1,6 +1,8 @@
 function getYearGenreDurationFormat(yearGenreDuration) {
     if (!yearGenreDuration || yearGenreDuration.length < 1) return {};
+    if (!yearGenreDuration.includes('‧')) return {};
 
+    console.log('yearGenreDuration:', yearGenreDuration);
     let genres = yearGenreDuration.split('‧')[1].trim();
 
     const arr = yearGenreDuration.split(' ');
